@@ -1,0 +1,247 @@
+/* Genel ayarlar */
+.App {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Hamburger Menü */
+.hamburger {
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Menü linkleri */
+.nav-links {
+  list-style: none;
+  position: fixed;
+  top: 60px;
+  right: 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1050;
+}
+
+.nav-links.show {
+  display: flex;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  text-decoration: underline;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+/* Hero Bölümü */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+/* Metalab tarzı arka plan animasyonu */
+.animated-bg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 30%, #ff758c, transparent 25%),
+              radial-gradient(circle at 80% 70%, #7eb3ff, transparent 25%),
+              radial-gradient(circle at 50% 50%, #ffde7a, transparent 25%);
+  background-size: cover;
+  animation: bgMove 25s linear infinite;
+  z-index: 0;
+  filter: blur(100px);
+  opacity: 0.7;
+}
+
+@keyframes bgMove {
+  0% { transform: translate(0,0) rotate(0deg); }
+  50% { transform: translate(100px,50px) rotate(45deg); }
+  100% { transform: translate(0,0) rotate(0deg); }
+}
+
+/* Hero içeriği */
+.hero h1, .hero p, .my-button, .hero-image {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* Buton */
+.my-button {
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.my-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+.message {
+  color: #ff6600;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.hero-image {
+  margin-top: 40px;
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Kartlar */
+.card {
+  background-color: rgba(255,255,255,0.1);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* Footer */
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 30px 20px;
+  font-size: 16px;
+  margin-top: 50px;
+}
+/* src/components/Button.css */
+.archicraft-button {
+  position: relative;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s, border-color 0.4s;
+}
+
+.archicraft-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #fff;
+  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.archicraft-button:hover {
+  color: #000;
+  border-color: #000;
+}
+
+.archicraft-button:hover::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+}
+.top-right-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}

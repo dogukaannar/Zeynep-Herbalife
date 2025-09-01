@@ -1,0 +1,39 @@
+/* src/components/Button.css */
+.archicraft-button {
+  position: relative;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.4s, border-color 0.4s;
+}
+
+.archicraft-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #fff;
+  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.archicraft-button:hover {
+  color: #000;
+  border-color: #000;
+}
+
+.archicraft-button:hover::before {
+  width: 0;
+  height: 0;
+  top: 50%;
+  left: 50%;
+}
